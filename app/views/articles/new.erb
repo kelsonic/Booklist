@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row center">
+
+    <h1 class="light-blue-text">Create Article</h1>
+
+    <form class="col s12" action="/articles" method="post">
+      <!-- Title -->
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="title_input_text" name="article[title]" type="text" length="60">
+          <label for="title_input_text">Title</label>
+        </div>
+      </div>
+      <!-- Author -->
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="author_input_text" name="article[author]" type="text" length="50">
+          <label for="author_input_text">Author</label>
+        </div>
+      </div>
+      <!-- Price -->
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="price_input_text" name="article[price]" type="text">
+          <label for="price_input_text">Price</label>
+        </div>
+      </div>
+      <!-- Genre/Category -->
+      <div class="row">
+        <div class="input-field col s6">
+          <select name="article[category_id]">
+            <option value="" disabled selected>Choose the genre</option>
+            <% @categories.each do |category| %>
+              <option value="<%= category.id %>"><%= category.name %></option>
+            <% end %>
+          </select>
+          <label>Genre</label>
+        </div>
+      </div>
+      <!-- Description -->
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="description_textarea1" name="article[description]" class="materialize-textarea" length="200"></textarea>
+           <label for="description_textarea1">Description</label>
+        </div>
+      </div>
+      <!-- Update Button -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="submit" value="Create" class="waves-effect waves-light light-blue btn">
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

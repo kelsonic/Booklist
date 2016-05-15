@@ -1,0 +1,13 @@
+<div class="container center">
+  <div class="row">
+    <div class="col s12 m6 offset-m3">
+      <h1>Categories</h1>
+
+      <ol>
+        <% @categories.each do |category| %>
+          <li class="left-align"><a href="/categories/<%= category.id %>" ><%= category.name %></a></li>
+        <% end %>
+      </ol>
+    </div>
+  </div>
+

@@ -1,0 +1,30 @@
+<section class="article">
+  <div class="container center">
+    <div class="row">
+      <div class="col s12 m8 offset-m2 l6 offset-l3">
+        <h1 class="light-blue-text text-lighten-2"><%= @article.title %></h1>
+        <p>By <%= @article.author %> | <span class="light-green-text">Genre:</span> <%= @article.category.name %></p>
+        <h3 class="green-text">$<%= @article.price %></h3>
+        <p class="flow-text"><%= @article.description %></p>
+
+      </div>
+    </div>
+    <% if valid_key? %>
+      <div class="row">
+
+        <!-- Edit Button -->
+        <a href="/articles/<%= @article.id %>/edit" class="waves-effect waves-light amber darken-2 btn">Edit</a>
+
+        <br/><br/>
+
+        <!-- Delete Button -->
+        <form action="/articles/<%= @article.id %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Delete" class="waves-effect waves-light red btn">
+        </form>
+
+      </div>
+    <% end %>
+  </div>
+  <a href="/" class="waves-effect waves-light light-blue lighten-2 btn back-button"><< back</a>
+</section>

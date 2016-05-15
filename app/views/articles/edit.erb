@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row center">
+
+    <h1 class="light-blue-text">Update Article</h1>
+
+    <form class="col s12" action="/articles/<%= @article.id %>" method="post">
+      <input type="hidden" name="_method" value="put">
+      <!-- Title -->
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="title_input_text" name="article[title]" type="text" length="60" value="<%= @article.title %>">
+          <label for="title_input_text">Title</label>
+        </div>
+      </div>
+      <!-- Author -->
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="author_input_text" name="article[author]" type="text" length="50" value="<%= @article.author %>">
+          <label for="author_input_text">Author</label>
+        </div>
+      </div>
+      <!-- Price -->
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="price_input_text" name="article[price]" type="text" value="<%= @article.price %>">
+          <label for="price_input_text">Price</label>
+        </div>
+      </div>
+      <!-- Genre/Category -->
+      <div class="row">
+        <div class="input-field col s6">
+          <select name="article[category_id]">
+            <option value="<%= @article.category %>" disabled selected>Choose the genre</option>
+            <% @categories.each do |category| %>
+              <option value="<%= category.id %>"><%= category.name %></option>
+            <% end %>
+          </select>
+          <label>Genre</label>
+        </div>
+      </div>
+      <!-- Description -->
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="description_textarea1" name="article[description]" class="materialize-textarea" length="200"><%= @article.description %></textarea>
+           <label for="description_textarea1">Description</label>
+        </div>
+      </div>
+      <!-- Update Button -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="submit" value="Update" class="waves-effect waves-light light-blue btn">
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<a href="/articles/<%= @article.id %>" class="waves-effect waves-light light-blue lighten-2 btn back-button"><< back</a>
